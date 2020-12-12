@@ -2,22 +2,20 @@ import UIKit
 
 class CharacterList: UITableViewController {
     let cellReuseId = "cell"
-    var marvelResponse = [MarvelData]()
-    var heroes = [Characters]()
+    var hero = [Character]()
     
     override func loadView() {
         super.loadView()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseId)
         
-        let ts = "1"
-        let apiKey = "5ab6fe0b9f2d5c4047477c3823b10b8c"
-        let hash = "7698eaa1dea7967ec626da56881a5c56"
-        let baseUrlString = "https://gateway.marvel.com/v1/public/characters?"
+        let ts = Constants.ts
+        let apiKey = Constants.apiKey
+        let hash = Constants.hash
+        let baseUrlString = Constants.baseUrlString
         
         let urlString = "\(baseUrlString)ts=\(ts)&apikey=\(apiKey)&hash=\(hash)"
         print(urlString)
-        
         
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
@@ -29,30 +27,30 @@ class CharacterList: UITableViewController {
     
     func parse(json: Data!) {
         let decoder = JSONDecoder()
+        
+        struct MarvelResponse: Codable {
+            let data: MarvelData
+        }
+        
+        struct MarvelData: Codable {
+            var results: [Character]
+        }
+        
         if let jsonChars = try? decoder.decode(MarvelResponse.self, from: json) {
-            marvelResponse = [jsonChars.data]
-            
-            print("marvel response:\(marvelResponse)") // returns 20 chars like this "marvelThing.Characters(name: Iron Man)"
-            
+            hero = jsonChars.data.results
             tableView.reloadData()
         }
     }
     
-    
-    
-    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return marvelResponse.count
+        return hero.count
     }
-    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
-        
-        cell.textLabel?.text = "things"
+        cell.textLabel?.text = hero[indexPath.row].name
         
         return cell
     }
-    
 }
