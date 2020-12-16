@@ -1,8 +1,8 @@
 import UIKit
 
 class CharacterList: UITableViewController {
-    let cellReuseId = "cell"
-    var hero = [Character]()
+    private let cellReuseId = "cell"
+    private lazy var hero = [Character]()
     
     override func loadView() {
         super.loadView()
