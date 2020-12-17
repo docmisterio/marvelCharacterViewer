@@ -1,7 +1,7 @@
 import UIKit
 
 class CharacterCell: UITableViewCell {
-    let characterPhoto = UIImageView()
+    var characterPhoto = UIImageView()
     let characterName = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -11,6 +11,10 @@ class CharacterCell: UITableViewCell {
         characterName.textAlignment = .center
         characterName.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         contentView.addSubview(characterName)
+        
+        characterPhoto.translatesAutoresizingMaskIntoConstraints = false
+        characterPhoto.layer.cornerRadius = 100
+        contentView.addSubview(characterPhoto)
         
         
         
@@ -28,8 +32,12 @@ class CharacterCell: UITableViewCell {
     
     func setupConstraints() {
         let constraints = [
-            characterName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+//            characterPhoto.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            
+            characterName.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
             characterName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            
+            
             
             
             

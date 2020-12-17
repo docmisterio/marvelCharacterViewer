@@ -43,14 +43,24 @@ class CharacterList: UITableViewController {
     }
     
     // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return hero.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! CharacterCell
+        
         cell.characterName.text = hero[indexPath.row].name
+        // next up - figure out how to load an image from a url. NOTE: it's already a data task coming through the network
         
         return cell
     }
 }
+
+
