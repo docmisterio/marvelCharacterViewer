@@ -1,13 +1,13 @@
 import UIKit
 
 class CharacterList: UITableViewController {
-    private let cellReuseId = "cell"
+    private let cellReuseId = Constants.reUseId
     private lazy var hero = [Character]()
     
     override func loadView() {
         super.loadView()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseId)
+        tableView.register(CharacterCell.self, forCellReuseIdentifier: cellReuseId)
         
         let ts = Constants.ts
         let apiKey = Constants.apiKey
@@ -48,8 +48,8 @@ class CharacterList: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
-        cell.textLabel?.text = hero[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! CharacterCell
+        cell.characterName.text = hero[indexPath.row].name
         
         return cell
     }

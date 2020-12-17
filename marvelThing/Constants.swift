@@ -7,4 +7,5 @@ struct Constants {
     static let baseUrlString = "https://gateway.marvel.com/v1/public/characters?limit=100&"
     static var apiLimit = 0
     static var apiOffSet = 0
+    static let reUseId = "cell"
 }
