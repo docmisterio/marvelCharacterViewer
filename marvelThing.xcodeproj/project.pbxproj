@@ -15,6 +15,7 @@
 		A4BD82E4256867A10045666E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4BD82E2256867A10045666E /* Main.storyboard */; };
 		A4BD82E6256867A40045666E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4BD82E5256867A40045666E /* Assets.xcassets */; };
 		A4BD82E9256867A40045666E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4BD82E7256867A40045666E /* LaunchScreen.storyboard */; };
+		A4D846F0258A8929009F80A4 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D846EF258A8929009F80A4 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A4BD82E5256867A40045666E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4BD82E8256867A40045666E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4BD82EA256867A40045666E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4D846EF258A8929009F80A4 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 			isa = PBXGroup;
 			children = (
 				A450B41E2579BDFD00A23BC3 /* CharacterList.swift */,
-				A450B44B25848B6100A23BC3 /* Constants.swift */,
+				A4D846EF258A8929009F80A4 /* CharacterCell.swift */,
 				A450B4252579E41200A23BC3 /* MarvelData.swift */,
+				A450B44B25848B6100A23BC3 /* Constants.swift */,
 				A4BD82DC256867A10045666E /* AppDelegate.swift */,
 				A4BD82DE256867A10045666E /* SceneDelegate.swift */,
 				A4BD82E2256867A10045666E /* Main.storyboard */,
@@ -146,6 +149,7 @@
 				A450B44C25848B6100A23BC3 /* Constants.swift in Sources */,
 				A450B41F2579BDFD00A23BC3 /* CharacterList.swift in Sources */,
 				A4BD82DD256867A10045666E /* AppDelegate.swift in Sources */,
+				A4D846F0258A8929009F80A4 /* CharacterCell.swift in Sources */,
 				A450B4262579E41200A23BC3 /* MarvelData.swift in Sources */,
 				A4BD82DF256867A10045666E /* SceneDelegate.swift in Sources */,
 			);
