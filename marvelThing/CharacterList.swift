@@ -55,9 +55,12 @@ class CharacterList: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! CharacterCell
+        let heroAtPath = hero[indexPath.row]
+        let heroPhotoUrl = "\(heroAtPath.thumbnail.path).\(heroAtPath.thumbnail.extension)"
+        print(heroPhotoUrl)
         
-        cell.characterName.text = hero[indexPath.row].name
-        // next up - figure out how to load an image from a url. NOTE: it's already a data task coming through the network
+        cell.characterName.text = heroAtPath.name
+        cell.characterPhoto.image = UIImage(contentsOfFile: heroPhotoUrl)
         
         return cell
     }

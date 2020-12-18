@@ -16,9 +16,6 @@ class CharacterCell: UITableViewCell {
         characterPhoto.layer.cornerRadius = 100
         contentView.addSubview(characterPhoto)
         
-        
-        
-        
         setupConstraints()
     }
     
@@ -32,15 +29,13 @@ class CharacterCell: UITableViewCell {
     
     func setupConstraints() {
         let constraints = [
-//            characterPhoto.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            
+            characterPhoto.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            characterPhoto.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            characterPhoto.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
+            characterPhoto.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+
             characterName.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
             characterName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            
-            
-            
-            
-            
             
             
             
