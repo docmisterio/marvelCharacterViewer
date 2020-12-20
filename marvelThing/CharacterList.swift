@@ -55,13 +55,22 @@ class CharacterList: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath) as! CharacterCell
+        
         let heroAtPath = hero[indexPath.row]
-        let heroPhotoUrl = "\(heroAtPath.thumbnail.path).\(heroAtPath.thumbnail.extension)"
-        print(heroPhotoUrl)
-        
         cell.characterName.text = heroAtPath.name
-        cell.characterPhoto.image = UIImage(contentsOfFile: heroPhotoUrl)
         
+        // Considerations here: if the call takes too long, you might end up loading images
+        // into old/wrong cells. For network calls with lag like this, you should learn to account for
+        // slow queries, etc.
+        if let heroPhotoUrl = URL(string: "\(heroAtPath.thumbnail.path).\(heroAtPath.thumbnail.extension)"),
+           var components = URLComponents(url: heroPhotoUrl, resolvingAgainstBaseURL: true) {
+            print(heroPhotoUrl.absoluteString)
+            components.scheme = "https"
+            
+            if let secureUrl = components.url, let data = try? Data(contentsOf: secureUrl) {
+                cell.characterPhoto.image = UIImage(data: data)
+            }
+        }
         return cell
     }
 }

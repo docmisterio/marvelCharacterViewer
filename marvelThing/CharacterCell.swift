@@ -10,10 +10,12 @@ class CharacterCell: UITableViewCell {
         characterName.translatesAutoresizingMaskIntoConstraints = false
         characterName.textAlignment = .center
         characterName.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        characterName.backgroundColor = .blue
         contentView.addSubview(characterName)
         
         characterPhoto.translatesAutoresizingMaskIntoConstraints = false
         characterPhoto.layer.cornerRadius = 100
+        characterPhoto.backgroundColor = .green
         contentView.addSubview(characterPhoto)
         
         setupConstraints()
@@ -34,10 +36,8 @@ class CharacterCell: UITableViewCell {
             characterPhoto.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
             characterPhoto.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
 
-            characterName.leadingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 10),
+            characterName.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             characterName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            
-            
             
             ]
         
